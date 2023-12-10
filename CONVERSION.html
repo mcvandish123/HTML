@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body {
+                background-color: black;
+                text-align: center;
+                font: verdana;
+                width: 60%;
+                margin: auto;
+                background-image: url(https://64.media.tumblr.com/c0d42532e126a57947448abb47331002/00c2674969746c83-02/s1280x1920/856d136e8adfc28a8cd6bac366e50a054c50a3a4.gifv);
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 30px;
+                color: white;
+            }
+
+            p {
+                text-align: center;
+                padding: 0px 0px;
+                color: yellow;
+                background-color: red; 
+            }
+            
+            a:link, a:visited {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            }
+            
+            a:hover, a:active {
+            background-color: red;
+            }
+
+            div {
+            color: white;
+            }
+
+            button {
+            background-color: #04AA6D;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+            input {
+            background-color: white;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+        </style>
+            
+    </head>
+
+    <body>
+
+        <h1>UNIT CONVERTER</h1>
+        <p>
+            <label for="CEL"><b>CELCIUS</b></label>
+            <br>
+            <br>
+            <input id="CEL" type="number" placeholder="ENTER AMOUNT">
+            <br>
+            <br>
+            <button type="button" id="CELtoFAH">CONVERT to FAHRENHEIT</button>
+            <div id="CtoFRESULT">RESULT:</div>
+        </p>
+
+        <p>
+            <br>
+            <label for="FAH"><b>FAHRENHEIT</b></label>
+            <br>
+            <br>
+            <input id="FAH" type="number" placeholder="ENTER AMOUNT">
+            <br>
+            <br>
+            <button type="button" id="FAHtoCEL">CONVERT to CELSIUS</button>
+            <div id="FtoCRESULT">RESULT:</div> 
+        </p>
+
+        <p>
+            <br>
+            <label for="FEET"><b>FEET</b></label>
+            <br>
+            <br>
+            <input id="FEET" type="number" placeholder="ENTER AMOUNT">
+            <br>
+            <br>
+            <button type="button" id="FEETtoMET">CONVERT to METERS</button>
+            <div id="FtoMRESULT">RESULT:</div> 
+        </p>
+
+        <p>
+            <br>
+            <label for="MET"><b>METER</b></label>
+            <br>
+            <br>
+            <input id="MET" type="number" placeholder="ENTER AMOUNT">
+            <br>
+            <br>
+            <button type="button" id="METtoFEET">CONVERT to FEET</button>
+            <div id="MtoFRESULT">RESULT:</div> 
+        </p>
+        <br>
+        <a href="index.html">BACK TO HOMEPAGE</a>
+
+        <script>       
+            document.getElementById("CELtoFAH").addEventListener("click",
+            function CELtoFAH() {
+                var celsius = parseFloat(document.getElementById("CEL").value);
+                var fahrenheit = ((celsius * 9) / 5) + 32;
+                document.getElementById("CtoFRESULT").innerHTML = fahrenheit.toFixed(2) + " °F";
+            });
+
+            document.getElementById("FAHtoCEL").addEventListener("click",
+            function FAHtoCEL() {
+                var fahrenheit = parseFloat(document.getElementById("FAH").value);
+                var celsius = (fahrenheit - 32) * 5 / 9;
+                document.getElementById("FtoCRESULT").innerHTML = celsius.toFixed(2) + " °C";
+            });
+
+            document.getElementById("FEETtoMET").addEventListener("click",
+            function FEETtoMET() {
+                var feet = parseFloat(document.getElementById("FEET").value);
+                var meters = feet * 0.3048;
+                document.getElementById("FtoMRESULT").innerHTML = meters.toFixed(4) + " Meters";
+            });
+
+            document.getElementById("METtoFEET").addEventListener("click",
+            function METtoFEET() {
+                var meters = parseFloat(document.getElementById("MET").value);
+                var feet = meters * 3.28084;
+                document.getElementById("MtoFRESULT").innerHTML = feet.toFixed(4) + " Feet";
+            });
+
+    
+        </script>
+
+    </body>
+</html>           
