@@ -1,0 +1,74 @@
+/* Place your CSS styles in this file */
+* {
+  box-sizing: border-box;
+}
+a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+a::before,
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+a::before {
+  background-color: #54b3d6;
+  height: 7px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+a::after {
+  content: attr(data-replace);
+  height: 100%;
+  top: 0;
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.70, 1);
+  color: #54b3d6;
+}
+
+a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+a:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Presentational Styles */
+body {
+  background-image: url
+  display: grid;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 27px;
+  line-height: 1.5;
+  height: 50vh;
+  place-items: center;
+  background-color: black;
+  background-image: url(https://64.media.tumblr.com/acb3a4e43f262889cd9acbba9e5358e2/b69d9a8b4953dfe0-3f/s2048x3072/a078f08218dd162dc8588086b7347157d78ec636.gifv);
+  background-attachment: fixed;
+  background-size: 100% 100%;  
+}
+
+a {
+  text-decoration: none;
+  color: yellow;
+  font-weight: 700;
+  vertical-align: top;
+}
+
+p {
+  color: white;
+}
+
+form {
+  font-size: 15px;
+  font-style: italic;
+  color: white;
+}
