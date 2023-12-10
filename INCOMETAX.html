@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            width: 60%;
+            margin: auto;
+            background-image: url(https://64.media.tumblr.com/c0d42532e126a57947448abb47331002/00c2674969746c83-02/s1280x1920/856d136e8adfc28a8cd6bac366e50a054c50a3a4.gifv);
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            }
+
+            h1 {
+            color: white;
+            text-align: center;
+            }
+
+            /* div classes */
+            .AMOUNT {
+                text-align: center;
+                padding: 0px 0px;
+                color: yellow;
+                background-color: red;
+                left: -200px;
+            }
+
+            .inc {
+                text-align: center;
+                color: white;
+            }
+            /* end */
+
+            input {
+            background-color: white;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+            button {
+            background-color: #04AA6D;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+            a:link, a:visited {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            }
+            
+            a:hover, a:active {
+            background-color: red;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <h1>INCOME TAX</h1>
+        <div class="AMOUNT">
+            <label for="income tax">AMOUNT OF INCOME:</label>
+            <br>
+            <br>
+            <input type="number" id="money" placeholder="ENTER THE AMOUNT">
+            <br>
+            <br>
+            <button type="button" id="income">CALCULATE</button>
+        </div>
+
+        <div class="inc">
+            <p>TAXABLE INCOME:</p> <b><form id="past"></form>
+            <p>INCOME TAX:</p> <header id="now"></header>
+            <p>INCOME AFTER TAX:</p> <footer id="future"></form>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a href="index.html">BACK TO HOMPAGE</a>
+        
+        <script>
+        
+            function i400kbelow(x) {
+                var tax = (x-250000) * 0.20
+                var profit = x - tax;
+                document.getElementById("now").innerHTML = tax.toFixed(2);    
+                document.getElementById("future").innerHTML = profit.toFixed(2); 
+            }
+
+            function i800kbelow(x) {
+                var tax = (x-400000) * 0.25 + 30000;
+                var profit = x - tax;
+                document.getElementById("now").innerHTML = tax.toFixed(2);  
+                document.getElementById("future").innerHTML = profit.toFixed(2);  
+            }
+
+            function i2mbelow(x) {
+                var tax = (x-800000) * 0.30 + 130000
+                var profit = x - tax;
+                document.getElementById("now").innerHTML = tax.toFixed(2);
+                document.getElementById("future").innerHTML = profit.toFixed(2);    
+            }
+
+            function i8mbelow(x) {
+                var tax = (x-2000000) * 0.32 + 490000
+                var profit = x - tax;
+                document.getElementById("now").innerHTML = tax.toFixed(2);  
+                document.getElementById("future").innerHTML = profit.toFixed(2);  
+            }
+
+            function i8mabove(x) {
+                var tax = (x-8000000) * 0.35 + 2410000
+                var profit = x - tax;
+                document.getElementById("now").innerHTML = tax.toFixed(2);   
+                document.getElementById("future").innerHTML = profit.toFixed(2); 
+            }
+
+            document.getElementById("income").addEventListener("click",
+            function incomelevel() {
+                var income = parseFloat(document.getElementById("money").value);
+                document.getElementById("past").innerHTML = income.toFixed(2);
+                if (income >= 0 && income <= 250000) {
+                    document.getElementById("now").innerHTML = "0";
+                    document.getElementById("future").innerHTML = income;
+                }
+                else if (income > 250000 && income <= 400000) {
+                    i400kbelow(income);
+                }
+                else if (income > 400000 && income <= 800000) {
+                    i800kbelow(income);
+                }
+                else if (income > 800000 && income <= 2000000) {
+                    i2mbelow(income);
+                }
+                else if (income > 2000000 && income <= 8000000) {
+                    i8mbelow(income);
+                }
+                else if (income > 8000000) {
+                    i8mabove(income);
+                }
+                else {
+                    alert("Please try again");
+                }
+            });
+        </script> 
+    </body>
+</html>
